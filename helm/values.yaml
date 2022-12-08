@@ -1,0 +1,7 @@
+app:
+  volumeName: wp-pv-claim
+  dbHost: wordpress-mysql
+
+mysql:
+  commonLabels:
+    app: wordpress
