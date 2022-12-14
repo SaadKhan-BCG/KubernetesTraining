@@ -8,3 +8,6 @@ dependencies:
   - name: mysql
     version: 9.4.1
     repository: https://charts.bitnami.com/bitnami
+  - name: metrics-server
+    version: 3.8.1
+    repository: https://kubernetes-sigs.github.io/metrics-server
