@@ -27,10 +27,10 @@ kubectl appply -f .
 ## Helm
 Assuming namespace was created as per previous, just run: 
 ```
-helm install wordpress helm/ --values helm/values.yaml
+helm -n worpress install wordpress helm/ --values helm/values.yaml
 ```
 
 or to make changes 
 ```
-helm upgrade wordpress helm/ --values helm/values.yaml
+helm -n worpress upgrade wordpress helm/ --values helm/values.yaml
 ```
