@@ -1,15 +1,45 @@
-apiVersion:
-kind:
+apiVersion: v1
+kind: Service
 metadata:
-
+  name: wordpress-mysql
+  labels:
+    app: wordpress
+spec:
+  ports:
+    - port: 3306
+  selector:
+    app: wordpress
+    tier: mysql
 
 ---
-apiVersion:
-kind:
+apiVersion: v1
+kind: PersistentVolumeClaim
 metadata:
-
+  name: mysql-pv-claim
+  labels:
+    app: wordpress
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 20Gi
 
 ---
-apiVersion:
-kind:
+apiVersion: apps/v1
+kind: Deployment
 metadata:
+  name: wordpress-mysql
+  labels:
+    app: wordpress
+spec:
+  selector: # TODO
+  template:
+    metadata:
+      labels: # TODO
+    spec:
+      containers:
+      - image: mysql:5.6 # TODO
+        ports: # TODO
+        volumeMounts: # TODO
+      volumes: # TODO

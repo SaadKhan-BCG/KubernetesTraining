@@ -1,1 +1,3 @@
 Ex 1. Identify resources needed for app and db deployment
+
+Ex 2. Given populated Service and Volumes, correctly generate deployment which uses these
