@@ -18,4 +18,5 @@ Ex 8. Install new metrics-server dependency, Add autoscaling for the app deploym
 
 Ex 9. Add Liveness and readiness probes for httpGet: null
 
+Ex 10. Run final example and compare
 
