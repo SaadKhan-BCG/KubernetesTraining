@@ -1,0 +1,7 @@
+apiVersion: v2
+name: wordpress
+description: Wordpress example helm chart
+type: application
+version: 0.0.1
+
+dependencies:
