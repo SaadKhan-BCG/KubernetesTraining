@@ -16,6 +16,6 @@ Ex 7. Create Service Account with read only cluster access, verify it works by e
 Ex 8. Install new metrics-server dependency, Add autoscaling for the app deployment Hint: Take a look at the HorizontalPodAutoscaler. Target CPU under 50%, scale pods between 2 and 10
 			Note: Sadly the autoscaler will not work locally as the metrics server does not support docker-desktop so stats cannot be collected, but the exercise can still be attempted
 
-
+Ex 9. Add Liveness and readiness probes for httpGet: null
 
 
