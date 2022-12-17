@@ -5,3 +5,10 @@ app:
 mysql:
   commonLabels:
     app: wordpress
+
+metrics-server:
+  readinessProbe:
+    initialDelaySeconds: 120
+  args:
+    - --kubelet-insecure-tls  # Needed if running locally due to https://github.com/kubernetes-sigs/metrics-server/issues/1025
+    - --metric-resolution=90s # Only for local dev this is a horrible long wait time https://github.com/docker/for-mac/issues/6274
