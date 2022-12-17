@@ -1,1 +1,7 @@
+app:
+  volumeName:
+  dbHost:
+
 mysql:
+  commonLabels:
+    app: wordpress
