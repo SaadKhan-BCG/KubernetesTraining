@@ -1,0 +1,14 @@
+# A simple test pod we can exec in to and test our read-only credentials
+apiVersion: v1
+kind: Pod
+metadata:
+  name: test
+  namespace: default
+spec:
+  serviceAccountName: wordpress-read-only
+  containers:
+  - name: test
+    image: alpine/k8s:1.26.0
+    args:
+    - sleep
+    - "1000000"
