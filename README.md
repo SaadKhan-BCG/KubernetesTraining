@@ -27,6 +27,18 @@ And finally
 kubectl appply -f .
 ```
 
+Start kubernetes dashboard with the following: 
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.6.1/aio/deploy/recommended.yaml
+```
+
+Generate token with
+```
+kubectl -n kubernetes-dashboard create token admin-user
+```
+
+Open http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
+
 ## Helm
 
 ## Run Commands

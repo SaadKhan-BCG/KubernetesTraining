@@ -4,3 +4,4 @@ Ex 2. Given populated Service and Volumes, correctly generate deployment which u
 
 Ex 3. Run example application. Check logs in k9s, operating UI on localhost
 
+Ex 4. Apply dashboard-account.yml, open K8s dashboard with instructions in README
