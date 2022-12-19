@@ -48,6 +48,11 @@ Access UI:
     - Navigate to locahost:<local_port> e.g. localhost:8443
     - Login with token generated above (You may need to click person icon in top right and click sign in first)
 
+
+### Cleanup
+Delete deployment simply by replacing "apply" with "delete" e.g. (to delete wordpress deployment)
+```kubectl delete -f .```
+
 ## Helm
 
 ## Run Commands
