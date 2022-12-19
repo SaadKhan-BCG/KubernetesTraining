@@ -1,1 +1,5 @@
+Useful Resources:
+- K8s Docs: https://kubernetes.io/docs/concepts/workloads/controllers/
+- Artifact Hub: https://artifacthub.io/
+
 Ex 1. Identify resources needed for app and db deployment
