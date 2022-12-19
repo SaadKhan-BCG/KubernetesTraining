@@ -1,10 +1,14 @@
+Useful Resources:
+- K8s Docs: https://kubernetes.io/docs/concepts/workloads/controllers/
+- Artifact Hub: https://artifacthub.io/
+
 Ex 1. Identify resources needed for app and db deployment
 
 Ex 2. Given populated Service and Volumes, correctly generate deployment which uses these
 
 Ex 3. Run example application. Check logs in k9s, operating UI on localhost
 
-Ex 4. Apply dashboard-account.yml, open K8s dashboard with instructions in README
+Ex 4. Follow instructions in README "K8s Dashboard" to start dashboard
 
 Ex 5. Install the mysql chart https://artifacthub.io/packages/helm/bitnami/mysql as a dependency, add our wordpress label and run it
 
