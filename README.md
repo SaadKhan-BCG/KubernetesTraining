@@ -24,20 +24,34 @@ kubectl -n wordpress create secret generic mysql-pass \
 
 And finally 
 ```
-kubectl appply -f .
+kubectl apply -f .
 ```
 
+## K8s Dashboard
 Start kubernetes dashboard with the following: 
 ```
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.6.1/aio/deploy/recommended.yaml
 ```
 
-Generate token with
+Generate token with:
 ```
+kubectl apply -f dashboard-account.yml
 kubectl -n kubernetes-dashboard create token admin-user
 ```
 
-Open http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/
+Access UI:
+- Generate port-forward:
+  - K9s Commands:
+    - :svc -> (switch to view services)
+    - (Navigate to service kubernetes-dashboard) <shift-f>
+    - Accept (and not the "local port" chose, usually 8443)
+    - Navigate to locahost:<local_port> e.g. localhost:8443
+    - Login with token generated above (You may need to click person icon in top right and click sign in first)
+
+
+### Cleanup
+Delete deployment simply by replacing "apply" with "delete" e.g. (to delete wordpress deployment)
+```kubectl delete -f .```
 
 ## Helm
 
