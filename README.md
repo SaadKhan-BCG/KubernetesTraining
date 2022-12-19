@@ -24,7 +24,7 @@ kubectl -n wordpress create secret generic mysql-pass \
 
 And finally 
 ```
-kubectl appply -f .
+kubectl apply -f .
 ```
 
 ## Helm
