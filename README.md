@@ -2,42 +2,33 @@
 The examples included here are complete and runnable, including on Mac with docker desktop and kubernetes mode enabled.
 They are intended to act as references for how to migrate an app to kubernetes.
 
-## Docker
-
-## Run Commands
-A simple ``docker compose up`` will start up the app on localhost
-
-## Kubernetes
-
-## Run Commands
-First Create the namespace:
-
+## Ex 0 (Not really an exercise)
+Run the docker example:
 ```
-kubectl create namespace wordpress 
+cd docker
+docker compose up
 ```
 
-And then the secret to store db password
+Open up http://localhost (Note https doesn't work) and click around 
+Once you are done, close the app down (a simple ctrl-c, to exit out)
+
+## Ex 1
+Open the new k8s directory and take a look at the files there (Note they are not populated at all)
+Using what we have learned, see if you can decide what resource types should fit in to the files.
+You can refer to the kubernetes docs https://kubernetes.io/docs/concepts/workloads/controllers/ for different resource types.
+
+### Bonus Task: 
+Once you have identified the resource type open the docs for that type e.g. 
+if you decide "Pod" (Hint its not Pod!) search the docs for the Pod resource type. You will find an example template file there (If you've picked right it will be an nginx instance and can be ran as is).
+See if you can copy-paste it, run it and have a thing about what changes we would make for the wordpress app.
+
+You can run a deployment with the command:
 ```
-kubectl -n wordpress create secret generic mysql-pass \
-    --from-literal=password='password'
+kubectl apply -f <file_name>
 ```
 
-And finally 
+If you wish to check it deployed you can run:
 ```
-kubectl apply -f .
+kubectl get pods -> gets you a list of running pods
+kubectl logs  <pod_name> -> get the pod name from the prior line 
 ```
-
-## Helm
-
-## Run Commands
-
-Assuming namespace was created as per previous, just run: 
-```
-helm -n wordpress install wordpress helm/ --values helm/values.yaml
-```
-
-or to make changes 
-```
-helm -n wordpress upgrade wordpress helm/ --values helm/values.yaml
-```
- 
