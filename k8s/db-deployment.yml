@@ -42,7 +42,13 @@ spec:
       labels: # TODO
     spec:
       containers:
-      - image: mysql:5.6 # TODO
+      - image: mysql:5.6
+        name: # TODO
         ports: # TODO
-        volumeMounts: # TODO
-      volumes: # TODO
+        volumeMounts:
+          - name: mysql-persistent-storage
+            mountPath: /var/lib/mysql
+      volumes:
+        - name: mysql-persistent-storage
+          persistentVolumeClaim:
+            claimName: mysql-pv-claim
