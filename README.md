@@ -164,3 +164,62 @@ Use the upgrade command above and then investigate in k9s to verify your label w
 
 
 # Ex 7.
+Let's migrate our kubernetes manifests to helm.
+
+Open helm/templates/app-deployment.yaml -> You will see I have copy pasted the exact file from k8s/app-deployment.yml
+Try running it? What Happens?
+
+Remember: to apply changes we use
+```
+helm -n wordpress upgrade wordpress helm/ --values helm/values.yaml
+```
+
+If you check the logs (remember we have k9s) you will see it fail to connect to the DB.
+This is because the new helm chart we installed for mysql generates its own secret for the password, we need to now use this.
+Update the environment variable in the app-deployment to the following: (note the name and key have changed)
+
+```yaml
+- name: WORDPRESS_DB_PASSWORD
+  valueFrom:
+    secretKeyRef:
+      name: wordpress-mysql
+      key: mysql-root-password
+```
+
+## Templates
+One of the big advantages of helm is the ability to template variables for easy re-use. Lets try this out
+
+under the environment variable "DB_HOST" try replacing the hard coded value
+``value: wordpress-mysql`` with ``value: {{ .Values.app.dbHost }}``
+
+Now open the values.yaml and look there for dbHost you can see it here!
+Note helm supports the use of multiple values.yaml files so you can create a baseline, and a different file for different environments.
+lets try this!
+
+duplicate the values.yaml, creating a second values.dev.yaml
+now remove the ``dbHost: wordpress-mysql`` from the original
+
+try and re-run 
+```
+helm -n wordpress upgrade wordpress helm/ --values helm/values.yaml
+```
+
+What happens?
+We havent told helm to use our second values.yaml file, lets fix this (Note values.yaml files are read left to right and overwritten if you have the same key)
+```
+helm -n wordpress upgrade wordpress helm/ --values helm/values.yaml --values helm/values.dev.yaml
+```
+
+
+### Bonus tasks:
+
+**DB Secret Value**
+Have a look at the docs again for the db (https://artifacthub.io/packages/helm/bitnami/mysql)
+There is a parameter there to tell the chart to use an existing db secret instead of its own. Can you find it?
+Try and use this parameter to point at our old db secret instead.
+
+You can test it works by reverting the helm/templates/app-deployment.yml to match the k8s/app-deployment.yml and check it still works.
+
+**Templates**
+Have another read through of the app-deployment and think what else you would want to template and control, e.g. the replicas
+Try and add more templated variables, testing them out.
