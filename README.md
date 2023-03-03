@@ -54,7 +54,7 @@ matchLabels:
 ```
 Under the selector. What labels have we given our Service? is it also app:nginx? or is it something else
 
-## Now lets test it out!
+### Now lets test it out!
 
 ### Run Commands
 First Create the namespace:
