@@ -39,11 +39,13 @@ Populate the TODOs pieces in the app-deployment and db-deployment.
 
 **Challenge:** Try and do it without reading the Hints below
 
-Hint 1.
+**Hint 1.** 
+
 Take a look at the nginx example here https://kubernetes.io/docs/concepts/workloads/controllers/deployment/ 
 see what values they have? can we copy these? if not how do they change?
 
-Hint 2. Selector
+**Hint 2.**
+
 The selector in the deployment needs to align with the values for the Service so they point to each other.
 If you look at the example as recommended in hint 1, youll see:
 ```
@@ -52,8 +54,9 @@ matchLabels:
 ```
 Under the selector. What labels have we given our Service? is it also app:nginx? or is it something else
 
+## Now lets test it out!
 
-## Run Commands
+### Run Commands
 First Create the namespace:
 
 ```
@@ -70,3 +73,7 @@ And finally
 ```
 kubectl apply -f .
 ```
+
+## Bonus Task:
+Change the name of the db-deployment and redeploy. What happens?
+See if you can correct it.
