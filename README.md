@@ -125,7 +125,7 @@ once you have finished inside it, exit the pod and please delete it using k9s (c
 Try and change our read only role to only have read only access to Pods, not deployments. (You can rely on the docs listed about).
 Hint here deployments are part of ``apiVersion: apps/v1``, whereas pods are part of ``apiVersion: v1`` (This is where those 3 different permission blocks we set matter)
 
-Ex 9. 
+# Ex 9. 
 Adding Liveness and Readiness Probes.
 This is a very similar concept to docker, liveness/readiness probes give us the confidence our app is actually up and running
 If you have a custom healthcheck in your app its common to use this, for our example we're keeping it simple:
