@@ -163,7 +163,7 @@ Read through the parameters and try and apply our wordpress label to all the cha
 Use the upgrade command above and then investigate in k9s to verify your label was assigned
 
 
-# Ex 7.
+# Ex 6.
 Let's migrate our kubernetes manifests to helm.
 
 Open helm/templates/app-deployment.yaml -> You will see I have copy pasted the exact file from k8s/app-deployment.yml
