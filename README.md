@@ -218,6 +218,8 @@ Have a look at the docs again for the db (https://artifacthub.io/packages/helm/b
 There is a parameter there to tell the chart to use an existing db secret instead of its own. Can you find it?
 Try and use this parameter to point at our old db secret instead.
 
+Note this will be really helpful in practise, where we often want to set the password ourselves e.g. storing it in AWS Secrets Manager
+
 You can test it works by reverting the helm/templates/app-deployment.yml to match the k8s/app-deployment.yml and check it still works.
 
 **Templates**
