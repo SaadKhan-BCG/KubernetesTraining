@@ -78,7 +78,7 @@ kubectl apply -f .
 Change the name of the db-deployment and redeploy. What happens?
 See if you can correct it.
 
-# Ex 4.
+# Ex 3.
 
 Run the application now using the run commands from ex3. Did your example work before?
 
